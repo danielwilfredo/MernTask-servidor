@@ -11,7 +11,7 @@ conectarDB();
 //habilitar cors
 app.use(cors());
 
-//habilitar express.json 
+//habilitar express.json  
 app.use(express.json({extended: true}));
 
 //puerto de la app
@@ -25,5 +25,5 @@ app.use('/api/tareas', require('./routes/tareas'));
 
 
 //arrancar el servidor
-app.listen(port,()=>{console.log(`El servidor esta funcionando en el puerto ${port}`)});
+app.listen(port, '0.0.0.0' ,()=>{console.log(`El servidor esta funcionando en el puerto ${port}`)});
 
