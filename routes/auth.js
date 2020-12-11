@@ -1,31 +1,19 @@
-//rutas para autenticar usuarios
-const express = require("express");
+// Rutas para autenticar usuarios
+const express = require('express');
 const router = express.Router();
-const { check } = require("express-validator");
-const authController = require('../controllers/authController')
+const { check } = require('express-validator');
+const authController = require('../controllers/authController');
 const auth = require('../middleware/auth');
 
-
-//iniciar sesion
-
-
-//api/auth
-router.post(
-  "/",
-  /* se elimino porque ya estaba en react[
-    check("email", "Agrega un email valido").isEmail(),
-    check("password", "El password debe ser minimo de 6 caracteres").isLength({
-      min: 6,
-    }),
-  ],*/
-  authController.autenticarUsuario
-
+// Iniciar sesión
+// api/auth
+router.post('/', 
+    authController.autenticarUsuario
 );
 
-//obtiene el usuario autenticado
+// Obtiene el usuario autenticado
 router.get('/',
-auth, authController.usuarioAutenticado
-)
-
-
+    auth,
+    authController.usuarioAutenticado
+);
 module.exports = router;
